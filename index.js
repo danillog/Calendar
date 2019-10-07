@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './style.css';
+import CalendarioPe from './CalendarioPe/calendarioPe';
 import Calendario from './Calendario/calendario';
-import CalendarioPe from '.CalendarioPe/calendarioPe';
+
 
 
 
