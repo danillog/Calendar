@@ -7,10 +7,10 @@ class calendarioPe  extends Component {
      /*
       Talvez para fazer o calendario pequeno seja melhor uma tabela 
       */
-     <div class="card" >
-        <div class="card-body">   
+        
           <table class="table table-striped">
             <thead>
+            <tr><th colspan="7" id="data">Março de 2019</th></tr>
               <th scope="col">Dom</th>
               <th scope="col">Seg</th>
               <th scope="col">Ter</th>
@@ -56,13 +56,14 @@ class calendarioPe  extends Component {
                 <td>28</td>
                 <td>29</td>
               </tr>
+              <tr>
+                <td>30</td>
+                <td>31</td>
+              </tr>
 
             </tbody>
           </table>
-      </div>
-    </div>
-  
-  
+
     );
   }
 }

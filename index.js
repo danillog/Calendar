@@ -8,6 +8,7 @@ import Calendario from './Calendario/calendario';
 
 
 class App extends Component {
+  
   constructor() {
     super();
     this.state = {
@@ -19,12 +20,12 @@ class App extends Component {
     return (
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-3">
-            <h2> Calendario pequeno</h2>
-            <CalendarioPe />
+          <div class="col-lg-3 cp">
+            <h2> cp </h2>
+            <CalendarioPe/>
           </div>  
-          <div class="col-sm">
-            <h3> Calendario grande</h3>
+          <div class="col-lg cg">
+            <h3> cg</h3>
             <Calendario />
           </div>
         </div>
