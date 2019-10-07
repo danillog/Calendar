@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './style.css';
-import calendario from './Calendario/calendario';
+import Calendario from './Calendario/calendario';
+import CalendarioPe from '.CalendarioPe/calendarioPe';
 
 
 
@@ -19,11 +20,11 @@ class App extends Component {
         <div class="row">
           <div class="col-sm-3">
             <h2> Calendario pequeno</h2>
-            <calendario />
+            <CalendarioPe />
           </div>  
           <div class="col-sm">
             <h3> Calendario grande</h3>
-            <calendario />
+            <Calendario />
           </div>
         </div>
       </div>
