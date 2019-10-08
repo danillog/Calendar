@@ -1,50 +1,45 @@
 import React, { Component } from 'react';
 import './style.css';
 import { format, parse } from 'date-fns';
-import { enUS, eo } from 'date-fns/locale';
+import { enUS, eo, pt } from 'date-fns/locale';
 import { addDays, addHours } from 'date-fns/fp';
 import { format, compareAsc } from 'date-fns';
-
+import startOfToday from 'date-fns/startOfToday'
 
 
 
 class calendarioPe  extends Component {
   render(){
-    /*
+
+    const  br = require('date-fns/locale/pt');
     const data = {
-      dia: format(new Date (Date.), 'd'),
-      mes: format(new Date (Date), 'MMMM'),
-      ano: format(new Date(Date), 'yyyy')
+      dia: format(new Date (startOfToday()), 'd'),
+      mes: format(new Date (startOfToday()), 'MMMM',{locale: br}),
+      ano: format(new Date(startOfToday()), 'yyyy')
 
-    const newYears = new Date(‘2019/01/01’);
-const frenchLocale = require(‘date-fns/locale/fr’);
-const formattedDate = format(
-    newYears,
-    ‘MMMM DD, YYYY’,
-    { locale: frenchLocale }
-);
+    } 
 
-    } */
-
-    const  br = require('date-fns/locale/pt-b');
-    const M = 9
-    const mes = format(new Date(2017, M, 6), 'MMMM', {locale: br})
-    const ano = format(new Date(2017, 10, 6), 'yyyy')
     return (
      /*
-      Talvez para fazer o calendario pequeno seja melhor uma tabela 
+      Duvidas: 
+        Como conectar ambos os conteiners, como mudar a data de ambos os calendarios?
+
+      O que fazer ?
+        + Construir os dias da semana no calendario, utilizano o js para deixar o codigo menor.
+
+        + 
       */
         
         
           <table class="table table-striped">
             <thead>
             <tr>
-              <th colspan="2"> 
-                <button type="button" class="btn btn-outline-secondary btn-lg">Ant</button>
+              <th colspan="2" class="botao"> 
+                <button type="button" class="btn btn-outline-secondary btn-sm">Ant</button>
               </th>
-              <th colspan="3" id="data">{mes} de {ano}</th>
-              <th colspan="2">
-                <button type="button" class="btn btn-outline-secondary btn-lg">Pro</button> 
+              <th colspan="3" id="data">{data.mes} de {data.ano}</th>
+              <th colspan="2" class="botao">
+                <button type="button" class="btn btn-outline-secondary btn-sm ">Pro</button> 
               </th>
             </tr>
               <th scope="col">Dom</th>
