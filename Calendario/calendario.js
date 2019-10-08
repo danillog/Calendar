@@ -8,7 +8,7 @@ class calendarioPe  extends Component {
       Talvez para fazer o calendario pequeno seja melhor uma tabela 
       */
     <div class="container" id="semana">
-      <div class="row" >
+      <div class="row fixo" >
         <div class ="col-sm"> Dom</div>
         <div class ="col-sm"> Seg</div>
         <div class ="col-sm"> Ter</div>
@@ -17,7 +17,7 @@ class calendarioPe  extends Component {
         <div class ="col-sm"> Sex</div>
         <div class ="col-sm"> Sab</div>
       </div>
-      <div class="row" >
+      <div class="row " >
         <div class ="col-sm"> 1</div>
         <div class ="col-sm"> 2</div>
         <div class ="col-sm"> 3</div>

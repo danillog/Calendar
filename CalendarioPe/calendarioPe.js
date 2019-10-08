@@ -1,16 +1,52 @@
 import React, { Component } from 'react';
 import './style.css';
+import { format, parse } from 'date-fns';
+import { enUS, eo } from 'date-fns/locale';
+import { addDays, addHours } from 'date-fns/fp';
+import { format, compareAsc } from 'date-fns';
+
+
+
 
 class calendarioPe  extends Component {
   render(){
+    /*
+    const data = {
+      dia: format(new Date (Date.), 'd'),
+      mes: format(new Date (Date), 'MMMM'),
+      ano: format(new Date(Date), 'yyyy')
+
+    const newYears = new Date(‘2019/01/01’);
+const frenchLocale = require(‘date-fns/locale/fr’);
+const formattedDate = format(
+    newYears,
+    ‘MMMM DD, YYYY’,
+    { locale: frenchLocale }
+);
+
+    } */
+
+    const  br = require('date-fns/locale/pt-b');
+    const M = 9
+    const mes = format(new Date(2017, M, 6), 'MMMM', {locale: br})
+    const ano = format(new Date(2017, 10, 6), 'yyyy')
     return (
      /*
       Talvez para fazer o calendario pequeno seja melhor uma tabela 
       */
         
+        
           <table class="table table-striped">
             <thead>
-            <tr><th colspan="7" id="data">Março de 2019</th></tr>
+            <tr>
+              <th colspan="2"> 
+                <button type="button" class="btn btn-outline-secondary btn-lg">Ant</button>
+              </th>
+              <th colspan="3" id="data">{mes} de {ano}</th>
+              <th colspan="2">
+                <button type="button" class="btn btn-outline-secondary btn-lg">Pro</button> 
+              </th>
+            </tr>
               <th scope="col">Dom</th>
               <th scope="col">Seg</th>
               <th scope="col">Ter</th>

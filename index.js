@@ -11,8 +11,6 @@ class App extends Component {
   
   constructor() {
     super();
-    this.nome      = 'leonardo';
-    this.sobrenome = 'oliveira';
     this.state = {
       name: 'React'
     };
@@ -25,7 +23,7 @@ class App extends Component {
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-3 cp">
-            <h2> cp { this.state.name} , {this.nome}</h2>
+            <h2> cp </h2>
             <CalendarioPe/>
           </div>  
           <div class="col-lg cg">
