@@ -5,12 +5,15 @@ import { enUS, eo, pt } from 'date-fns/locale';
 import { addDays, addHours } from 'date-fns/fp';
 import { format, compareAsc } from 'date-fns';
 import startOfToday from 'date-fns/startOfToday'
-
+import { faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 class calendarioPe  extends Component {
   render(){
 
+  
     const  br = require('date-fns/locale/pt');
     const data = {
       dia: format(new Date (startOfToday()), 'd'),
@@ -31,15 +34,19 @@ class calendarioPe  extends Component {
       */
         
         
-          <table class="table table-striped">
-            <thead>
+          <table class="table ">
+            <thead class="thead-dark">
             <tr>
               <th colspan="2" class="botao"> 
-                <button type="button" class="btn btn-outline-secondary btn-sm">Ant</button>
+                <button type="button" class="btn btn-outline-primary btn-sm btn-right">
+                 <FontAwesomeIcon icon={faChevronLeft} />
+                </button>
               </th>
               <th colspan="3" id="data">{data.mes} de {data.ano}</th>
               <th colspan="2" class="botao">
-                <button type="button" class="btn btn-outline-secondary btn-sm ">Pro</button> 
+                <button type="button" class="btn btn-outline-primary btn-sm btn-left">
+                 <FontAwesomeIcon icon={faChevronRight} />
+                </button> 
               </th>
             </tr>
               <th scope="col">Dom</th>
@@ -94,6 +101,7 @@ class calendarioPe  extends Component {
 
             </tbody>
           </table>
+
 
     );
   }
