@@ -14,7 +14,8 @@ class calendarioPe  extends Component {
     this.state = {
       date: new Date(startOfToday()),
       mes : format(new Date(), 'MMMM',{locale: require('date-fns/locale/pt')}),
-      ano : format(new Date(), 'yyyy')
+      ano : format(new Date(), 'yyyy'),
+      dias : null
     };
    //let mes = format(new Date(), 'MMMM',{locale: require('date-fns/locale/pt')});
    
@@ -53,12 +54,17 @@ class calendarioPe  extends Component {
     this.setState({
       date: addMonths((this.state.date),1),
        mes: format(addMonths((this.state.date),1), 'MMMM',{locale: require('date-fns/locale/pt')}),
-       ano: format(addMonths((this.state.date), 1), 'yyyy') 
+       ano: format(addMonths((this.state.date), 1), 'yyyy'),
+
       });
     this.addWeek();
   }
 
-  
+  showWeek = () => {
+    console.log("vamos falar de sua vida ")
+    return("Ola ola ola ");
+    
+    }
   
   render(){
 
@@ -80,7 +86,7 @@ class calendarioPe  extends Component {
                  <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
               </th>
-              <th colspan="3" id="mounthAndYear" >  {this.state.mes} de {this.state.ano}</th>
+              <th colspan="3" id="mounthAndYear" >  {this.state.mes} de {this.state.ano} e  {this.showWeek} </th>
               <th colspan="2" class="botao">
                 <button type="button" class="btn btn-outline-primary btn-sm btn-left" onClick ={this.next} >
                  <FontAwesomeIcon icon={faChevronRight} />
