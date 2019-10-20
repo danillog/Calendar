@@ -1,3 +1,3 @@
-# react-agenda
+# Aprendendo React
 
-Criar um gerenciador de eventos. 
+O motivo para criação deste projeto é para aprofundar meu aprendizado em reactJS.
