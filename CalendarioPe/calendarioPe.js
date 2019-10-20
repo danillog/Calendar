@@ -1,43 +1,51 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './style.css';
-import { format, parse } from 'date-fns';
 import { enUS, eo, pt } from 'date-fns/locale';
-import { addDays, addHours } from 'date-fns/fp';
-import { format, compareAsc } from 'date-fns';
-import { subMonths, addMonths, parseISO } from 'date-fns';
+import { addDays } from 'date-fns/fp';
+import { subMonths, addMonths, format, parseISO  } from 'date-fns';
 import startOfToday from 'date-fns/startOfToday';
-import { faChevronLeft} from '@fortawesome/free-solid-svg-icons';
-import { faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 
 class calendarioPe  extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dateFixa : new Date(),
-      mes : format( new Date(this.state.dateFixa), 'MMMM',{locale:  require('date-fns/locale/pt')})
-    
+      date: new Date(startOfToday()),
+      mes : format(new Date(), 'MMMM',{locale: require('date-fns/locale/pt')}),
+      ano : format(new Date(), 'yyyy')
     };
+   //let mes = format(new Date(), 'MMMM',{locale: require('date-fns/locale/pt')});
+   let ano = "ano";
   }
 
  
  // ano = format(new Date(startOfToday()), 'yyyy')
-
-  alerta = () => {
-    alert( this.state.mes )
-  }
-
  
 
-
-  next = () => {
-    let addMes = addMonths((this.state.dateFixa), 1)
-    alert(addMes)
+  alerta = () => {
+    alert(this.state.mes)
   }
   previous = () => {
+    this.setState({
+      date: subMonths((this.state.date),1),
+       mes: format(subMonths((this.state.date),1), 'MMMM',{locale: require('date-fns/locale/pt')}),
+       ano: format(subMonths((this.state.date),1),'yyyy')
+      });
+    //this.mes = format(new Date(this.state.date), 'MMMM',{locale: require('date-fns/locale/pt')});
+    this.alerta();
+  }
+  next = () => {
+    this.setState({
+      date: addMonths((this.state.date),1),
+       mes: format(addMonths((this.state.date),1), 'MMMM',{locale: require('date-fns/locale/pt')}),
+       ano: format(addMonths((this.state.date), 1), 'yyyy') 
+      });
     
   }
+
+  
   
   render(){
 
@@ -79,11 +87,11 @@ class calendarioPe  extends Component {
             <thead class="thead-dark">
             <tr>
               <th colspan="2" class="botao"> 
-                <button type="button" class="btn btn-outline-primary btn-sm btn-right" onClick = {this.alerta} >
+                <button type="button" class="btn btn-outline-primary btn-sm btn-right" onClick = {this.previous} >
                  <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
               </th>
-              <th colspan="3" id="mounthAndYear">{this..mes} de </th>
+              <th colspan="3" id="mounthAndYear" >  {this.state.mes} de {this.state.ano}</th>
               <th colspan="2" class="botao">
                 <button type="button" class="btn btn-outline-primary btn-sm btn-left" onClick ={this.next} >
                  <FontAwesomeIcon icon={faChevronRight} />
