@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import { enUS, eo, pt } from 'date-fns/locale';
 import { addDays } from 'date-fns/fp';
-import { subMonths, addMonths, format, parseISO  } from 'date-fns';
+import { subMonths, addMonths, format, parseISO, eachDayOfInterval, startOfMonth, endOfMonth } from 'date-fns';
 import startOfToday from 'date-fns/startOfToday';
 import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,24 +17,37 @@ class calendarioPe  extends Component {
       ano : format(new Date(), 'yyyy')
     };
    //let mes = format(new Date(), 'MMMM',{locale: require('date-fns/locale/pt')});
-   let ano = "ano";
+   
   }
 
  
  // ano = format(new Date(startOfToday()), 'yyyy')
  
 
-  alerta = () => {
-    alert(this.state.mes)
+  subWeek = () => {
+    let months = subMonths((this.state.date),1);
+    let semana = eachDayOfInterval(
+  { start:(startOfMonth(months)), end: (endOfMonth(months)) }
+)
+    console.log( semana )
+  }
+
+  addWeek = () => {
+    let months = addMonths((this.state.date),1);
+    let semana = eachDayOfInterval(
+  { start:(startOfMonth(months)), end: (endOfMonth(months)) }
+)
+    console.log( semana )
   }
   previous = () => {
+  
     this.setState({
       date: subMonths((this.state.date),1),
        mes: format(subMonths((this.state.date),1), 'MMMM',{locale: require('date-fns/locale/pt')}),
        ano: format(subMonths((this.state.date),1),'yyyy')
       });
     //this.mes = format(new Date(this.state.date), 'MMMM',{locale: require('date-fns/locale/pt')});
-    this.alerta();
+    this.subWeek();
   }
   next = () => {
     this.setState({
@@ -42,7 +55,7 @@ class calendarioPe  extends Component {
        mes: format(addMonths((this.state.date),1), 'MMMM',{locale: require('date-fns/locale/pt')}),
        ano: format(addMonths((this.state.date), 1), 'yyyy') 
       });
-    
+    this.addWeek();
   }
 
   
@@ -50,39 +63,15 @@ class calendarioPe  extends Component {
   render(){
 
   /*
-    const  br = require('date-fns/locale/pt');
-    let dateFix = new Date(startOfToday());
-    let data = {
-      dia: format(new Date (startOfToday()), 'd'),
-      mes: format((dateFix), 'MMMM',{locale: br}),
-      ano: format(new Date(startOfToday()), 'yyyy')
-
-    } 
-  
-
+   
     const week = document.createElement("tr");
     const day = document.createElement("td");
     
-    function next(){
-      this.dateFix = subMonths((this.dateFix), 1)
-      this.data.mes = format((this.dateFix), 'MMMM',{locale: br})
-    }
-    function previous(){
-      this.dateFix = subMonths((this.dateFix), 1)
-      this.data.mes = format((this.dateFix), 'MMMM',{locale: br})
-    }
+
 */
 
     return (
-     /*
-    
-      O que fazer ?
-        + Construir os dias da semana no calendario, utilizano o js para deixar o codigo menor.
 
-        + 
-      */
-        
-        
           <table class="table ">
             <thead class="thead-dark">
             <tr>
