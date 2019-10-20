@@ -11,6 +11,9 @@ table{
   background: #1A57A3;
   border-color: #134077;
 }
+#mounthAndYear{
+  font-size: 14px;
+}
 th,td{
   font-size: 10px;
   text-align: center;
