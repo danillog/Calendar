@@ -68,14 +68,22 @@ class calendarioPe  extends Component {
     this.setState({
       semana: days
     })
-
+   
     console.log(this.state.mes)
     console.log(this.state.semana)
-    
+     return (<li> {days} </li>)
   }
   
   render(){
 
+
+  const elements = ['one', 'two', 'three'];
+
+  const items = ['maçã','banana']
+
+  for (const [index, value] of elements.entries()) {
+    items.push(<li key={index}>{value}</li>)
+  }
   /*
    
     const week = document.createElement("tr");
@@ -94,7 +102,7 @@ class calendarioPe  extends Component {
                  <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
               </th>
-              <th colspan="3" id="mounthAndYear"  onClick = {this.showWeek}>  {this.state.mes} de {this.state.ano} {this.showWeek} </th>
+              <th colspan="3" id="mounthAndYear"  onClick = {this.showWeek}>  {this.state.mes} de {this.state.ano} </th>
               <th colspan="2" class="botao">
                 <button type="button" class="btn btn-outline-primary btn-sm btn-left" onClick ={this.next} >
                  <FontAwesomeIcon icon={faChevronRight} />
@@ -148,9 +156,9 @@ class calendarioPe  extends Component {
               </tr>
               <tr>
                 <td>30</td>
-                <td>31</td>
+                <td> {items} </td>
               </tr>
-                   <p>a  </p>
+                  
             </tbody>
           </table>
      
