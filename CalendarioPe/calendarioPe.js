@@ -14,7 +14,7 @@ class calendarioPe  extends Component {
       date: new Date(startOfToday()),
       mes : format(new Date(), 'MMMM',{locale: require('date-fns/locale/pt')}),
       ano : format(new Date(), 'yyyy'),
-      semana : []
+      semana : this.showWeek
     };
   }
 
@@ -39,6 +39,7 @@ class calendarioPe  extends Component {
       mes: format(months, 'MMMM',{locale: require('date-fns/locale/pt')}),
       ano: format(months, 'yyyy')
     });   
+
   }
 
   showWeek = () => {
@@ -68,22 +69,27 @@ class calendarioPe  extends Component {
     this.setState({
       semana: days
     })
-   
-    console.log(this.state.mes)
     console.log(this.state.semana)
-     return (<li> {days} </li>)
-  }
+   //console.log(days)
+   return ( days)
+   // Nesse caso estou chamando a varivel internar, pois a 'semana' só é atualizada no fim da função.
+   
+ }
   
   render(){
 
-
-  const elements = ['one', 'two', 'three'];
-
-  const items = ['maçã','banana']
-
-  for (const [index, value] of elements.entries()) {
-    items.push(<li key={index}>{value}</li>)
-  }
+    const daysOfInterval = [this.state.semana];
+    
+    const createDays = daysOfInterval.map((daysOfInterval) => {
+      for( let i = 0; i < 5; i++){
+          <tr>
+            for( let j = 0; j < 6; j++){
+              <td>  </td>
+            }
+          </tr>
+       }
+    });
+ 
   /*
    
     const week = document.createElement("tr");
@@ -156,12 +162,13 @@ class calendarioPe  extends Component {
               </tr>
               <tr>
                 <td>30</td>
-                <td> {items} </td>
+                <td> 31 </td>
               </tr>
                   
             </tbody>
           </table>
-     
+
+            
             
     );
   }
