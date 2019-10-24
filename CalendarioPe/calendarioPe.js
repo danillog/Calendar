@@ -2,101 +2,84 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import { enUS, eo, pt } from 'date-fns/locale';
-import { subMonths, addMonths, format, eachDayOfInterval, startOfMonth, endOfMonth, isSunday, isSaturday, subDays, addDays  } from 'date-fns';
+import { subMonths, addMonths, format, isBefore, eachDayOfInterval, startOfMonth, endOfMonth, isEqual, isSunday, isSaturday, subDays, addDays  } from 'date-fns';
 import startOfToday from 'date-fns/startOfToday';
 import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class calendarioPe  extends Component {
-  constructor(props){
-    super(props);
+  constructor(props, backend){
+    super(props);    
+    let today = new Date();
+    this.backend = backend;
     this.state = {
-      date: new Date(startOfToday()),
-      mes : format(new Date(), 'MMMM',{locale: require('date-fns/locale/pt')}),
-      ano : format(new Date(), 'yyyy'),
-      semana : this.showWeek
+      date: today,
+      month : format(today, 'MMMM',{locale: require('date-fns/locale/pt')}),
+      year : format(today, 'yyyy'),
+      calendar : this.buildCalendar(today)
     };
   }
 
   previous = () => {
-    let months = subMonths((this.state.date),1);
-  
-  //A variavel date serve para modificar a semana , pois o mes e ano possuem formatos diferentes de date, estes são strings
+    let previousDate = subMonths((this.state.date),1);
+    //A variavel date serve para modificar a semana , pois o mes e ano possuem formatos diferentes de date, estes são strings
     this.setState({
-      date : months,
-      mes: format(months, 'MMMM',{locale: require('date-fns/locale/pt')}),
-      ano: format(months,'yyyy')
-      });    
+      date : previousDate,
+      month: format(previousDate, 'MMMM',{locale: require('date-fns/locale/pt')}),
+      year: format(previousDate,'yyyy'),
+      calendar : this.buildCalendar(previousDate)
+    });          
   }
 
 
   next = () => {
-    let months = addMonths((this.state.date),1);
-  
-  //A variavel date serve para modificar a semana , pois o mes e ano possuem formatos diferentes de date, estes são strings
+    let nextDate = addMonths((this.state.date),1);
+    //A variavel date serve para modificar a semana , pois o mes e ano possuem formatos diferentes de date, estes são strings  
     this.setState({
-      date: months,
-      mes: format(months, 'MMMM',{locale: require('date-fns/locale/pt')}),
-      ano: format(months, 'yyyy')
+      date: nextDate,
+      month: format(nextDate, 'MMMM',{locale: require('date-fns/locale/pt')}),
+      year: format(nextDate, 'yyyy'),
+      calendar: this.buildCalendar(nextDate)
     });   
-
   }
 
-  showWeek = () => {
-    let moment = this.state.date
+  gotoDate = ev => {
+    alert('voce clicou na data: ' + ev.currentTarget.dataset.iterator);
+  }
 
-    let days  =  eachDayOfInterval({
-      start:(startOfMonth(moment)), end: (endOfMonth(moment))
-    });
-
+  buildCalendar = (today) => {
+    let currentDate = today
     
-    let startWeek = days[0]
+    let startWeek = startOfMonth(currentDate)
 
     while(!isSunday(startWeek)){
       startWeek = subDays(startWeek,1);
     }
   
-    let endWeek = days[days.length - 1];
+    let endWeek = endOfMonth(currentDate);
 
     while(!isSaturday(endWeek)){      
       endWeek = addDays(endWeek, 1);
     }
 
-    days = eachDayOfInterval({
-      start: startWeek, end: endWeek
-    });
+    let nextMonth = addDays(endWeek, 1);
 
-    this.setState({
-      semana: days
-    })
-    console.log(this.state.semana)
-   //console.log(days)
-   return ( days)
-   // Nesse caso estou chamando a varivel internar, pois a 'semana' só é atualizada no fim da função.
-   
+    let calendar = [];
+    let iterator = startWeek;
+    let key = 0;
+    while(isBefore(iterator, endWeek)){
+      let week = [];      
+      for(let i = 0; i < 7 && isBefore(iterator, nextMonth); i++){        
+        week.push(<td data-iterator={iterator} onClick={this.gotoDate}>{format(iterator, 'dd')}</td>);        
+        iterator = addDays(iterator, 1);
+      }      
+      calendar.push(<tr key={key++}>{week}</tr>);
+    }
+
+    return calendar;  
  }
   
   render(){
-
-    const daysOfInterval = [this.state.semana];
-    
-    const createDays = daysOfInterval.map((daysOfInterval) => {
-      for( let i = 0; i < 5; i++){
-          <tr>
-            for( let j = 0; j < 6; j++){
-              <td>  </td>
-            }
-          </tr>
-       }
-    });
- 
-  /*
-   
-    const week = document.createElement("tr");
-    const day = document.createElement("td");
-    
-
-*/
 
     return (
 
@@ -108,7 +91,7 @@ class calendarioPe  extends Component {
                  <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
               </th>
-              <th colspan="3" id="mounthAndYear"  onClick = {this.showWeek}>  {this.state.mes} de {this.state.ano} </th>
+              <th colspan="3" id="mounthAndYear">  {this.state.month} de {this.state.year} </th>
               <th colspan="2" class="botao">
                 <button type="button" class="btn btn-outline-primary btn-sm btn-left" onClick ={this.next} >
                  <FontAwesomeIcon icon={faChevronRight} />
@@ -123,52 +106,10 @@ class calendarioPe  extends Component {
               <th scope="col">Sex</th>
               <th scope="col">Sab</th>
             </thead>
-            <tbody id="mounth">      
-              <tr>
-                <td>01</td>
-                <td>02</td>
-                <td>03</td>
-                <td>04</td>
-                <td>05</td>
-                <td>06</td>
-                <td>07</td>
-              </tr>
-               <tr>
-                <td>09</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-                <td>15</td>
-              </tr>
-              <tr>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-                <td>19</td>
-                <td>20</td>
-                <td>21</td>
-                <td>22</td>
-              </tr>
-               <tr>
-                <td>23</td>
-                <td>24</td>
-                <td>25</td>
-                <td>26</td>
-                <td>27</td>
-                <td>28</td>
-                <td>29</td>
-              </tr>
-              <tr>
-                <td>30</td>
-                <td> 31 </td>
-              </tr>
-                  
+            <tbody id="mounth">    
+            {  this.state.calendar }
             </tbody>
-          </table>
-
-            
+          </table>           
             
     );
   }
