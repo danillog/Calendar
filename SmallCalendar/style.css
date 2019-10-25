@@ -6,6 +6,7 @@
 table{
 
   box-shadow: 10px 10px 15px 0 rgba(0,0,0,0.3);
+  z-index: 2;
 }
 .table .thead-dark th{
   background: #1A57A3;
@@ -59,4 +60,7 @@ tr td:hover{
   width: 60px;
   top: 10%;
   left: 10%;
+}
+.temp{
+  display: none;
 }

@@ -1,5 +1,7 @@
 .box{
-  width: 30px;
-  height: 30px;
-  
+  width: 255px;
+  height: 255px;
+  background: black;
+  display: none;
+
 }

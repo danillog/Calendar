@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import './style.css';
 
-class ChangeDate extends Component {
-  
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+class ChangeDate  extends Component {
+  render(){
 
-  render() {
     return (
-     <div class="box"> </div>
+     /*
+      Talvez para fazer o calendario pequeno seja melhor uma tabela 
+      */
+    <div class="box" >
+    </div>
+  
     );
   }
 }
 
-
-export default ChangeDate
+export default ChangeDate;

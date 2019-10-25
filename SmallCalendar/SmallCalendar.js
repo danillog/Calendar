@@ -125,6 +125,8 @@ class SmallCalendar extends Component {
 
   render() {
     return (
+      <div>
+       <ChangeDate  />
       <table class="table ">
         <thead class="thead-dark">
           <tr>
@@ -138,7 +140,10 @@ class SmallCalendar extends Component {
               </button>
             </th>
             <th colspan="3" id="mounthAndYear" onclick={this.onMonthChanged}>
-              <button class = "btn btn-outline-primary botton-date"> {this.state.month} de {this.state.year} </button>
+              <button class = "btn btn-outline-primary botton-date">
+               {this.state.month} de {this.state.year}
+                
+              </button>
             </th>
             <th colspan="2" class="botao">
               <button
@@ -160,9 +165,9 @@ class SmallCalendar extends Component {
         </thead>
         <tbody id="mounth">{this.state.calendar}</tbody>
 
-        <ChangeDate />
+       
        </table>
-      
+      </div>
     );
   }
 }
