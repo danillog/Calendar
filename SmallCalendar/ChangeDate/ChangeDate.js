@@ -19,4 +19,4 @@ class ChangeDate extends Component {
 }
 
 
-render(<ChangeDate />, document.getElementById('root'));
+export default ChangeDate
