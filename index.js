@@ -15,9 +15,6 @@ class App extends Component {
       name: 'React'
     };
   }
-
- 
-
   render() {
     return (
       <div class="container-fluid">
