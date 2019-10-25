@@ -7,7 +7,7 @@ import startOfToday from 'date-fns/startOfToday';
 import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class calendarioPe  extends Component {
+class SmallCalendar  extends Component {
   constructor(props, backend){
     super(props);    
     let today = new Date();
@@ -115,4 +115,4 @@ class calendarioPe  extends Component {
   }
 }
 
-export default calendarioPe;
+export default SmallCalendar;
