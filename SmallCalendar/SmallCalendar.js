@@ -23,7 +23,8 @@ import {
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {classNames, createClass } from 'classnames/bind'
+import {classNames, createClass } from 'classnames/bind';
+import ChangeDate from './ChangeDate/ChangeDate';
 
 
 class SmallCalendar extends Component {
@@ -82,7 +83,7 @@ class SmallCalendar extends Component {
 //    ev.currentTarget.dataset.iterator    
   };
 
-  onMonthChanged = ev => {
+  onMonthChanged = () => {
 
   }
 
@@ -137,8 +138,7 @@ class SmallCalendar extends Component {
               </button>
             </th>
             <th colspan="3" id="mounthAndYear" onclick={this.onMonthChanged}>
-              {" "}
-              {this.state.month} de {this.state.year}{" "}
+              <button class = "btn btn-outline-primary botton-date"> {this.state.month} de {this.state.year} </button>
             </th>
             <th colspan="2" class="botao">
               <button
@@ -159,7 +159,10 @@ class SmallCalendar extends Component {
           <th scope="col">Sab</th>
         </thead>
         <tbody id="mounth">{this.state.calendar}</tbody>
-      </table>
+
+        <ChangeDate />
+       </table>
+      
     );
   }
 }

@@ -40,13 +40,12 @@ tr td:hover{
   color: #000;
 }
 
-botao, btn{
-  align-items: center;
-  align-content: center;
-  padding: 0;
-  color: #000;
-  width: 60px;
+.botton-date{
+  color: #fff;
+  font-size: 20px;
 }
+ .botton-date:first-letter { text-transform: capitalize; }
+
 
 .btn-outline-primary{
   border: none;
