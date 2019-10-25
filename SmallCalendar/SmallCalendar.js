@@ -72,6 +72,8 @@ class SmallCalendar extends Component {
     let clickDate = parseISO(ev.currentTarget.dataset.iterator);
     console.log(clickDate);   
     this.setState({
+      month: format(clickDate, "MMMM", {locale: require("date-fns/locale/pt")}),
+      year: format(clickDate, 'yyy'),
       date: clickDate,
       calendar: this.buildCalendar(clickDate)
     });
@@ -83,7 +85,7 @@ class SmallCalendar extends Component {
   onMonthChanged = ev => {
 
   }
-  
+
   buildCalendar = referenceDate => {
     let currentDate = referenceDate;
     
