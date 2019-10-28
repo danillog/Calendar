@@ -9,11 +9,11 @@ table{
   z-index: 2;
 }
 .table .thead-dark th{
-  background: #1A57A3;
   border-color: #134077;
+  background-image: linear-gradient(to top, #1A57A3 0%, #134077 1%, #2a5298 100%);
 }
-#mounthAndYear{
-  font-size: 14px;
+#mounthAndYear button{
+  font-size: 15px;
 }
 th,td{
   font-size: 10px;

@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import './style.css';
 import SmallCalendar from './SmallCalendar/SmallCalendar';
 import Calendario from './Calendario/calendario';
-
+import City from './City/City';
 
 
 
@@ -20,8 +20,10 @@ class App extends Component {
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-3 cp">
-            
+           
             <SmallCalendar />
+            <City />
+
           </div>  
           <div class="col-lg cg">
             <h3> cg</h3>
