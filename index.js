@@ -20,7 +20,7 @@ class App extends Component {
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-3 cp">
-            <h2> cp </h2>
+            
             <SmallCalendar />
           </div>  
           <div class="col-lg cg">
