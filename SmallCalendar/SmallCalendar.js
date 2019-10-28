@@ -15,7 +15,8 @@ import {
   isSaturday,
   subDays,
   addDays,
-  parseISO
+  parseISO,
+  getDayOfYear
 } from "date-fns";
 import startOfToday from "date-fns/startOfToday";
 import {
@@ -111,7 +112,7 @@ class SmallCalendar extends Component {
       let week = [];
       for (let i = 0; i < 7 && isBefore(iterator, nextMonth); i++) {
         week.push(
-          <td data-iterator={format(iterator, 'yyy-MM-dd') + 'T00:00:00'}  onClick={this.activeFocus} className={ iterator.getDate() == currentDate.getDate() ? 'active': ''}>
+          <td data-iterator={format(iterator, 'yyy-MM-dd') + 'T00:00:00'}  onClick={this.activeFocus} className={ getDayOfYear(iterator) == getDayOfYear(currentDate) ? 'active': ''}>
             {format(iterator, "dd")}
           </td>
         );
