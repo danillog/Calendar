@@ -25,7 +25,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {classNames, createClass } from 'classnames/bind';
-import ChangeDate from './ChangeDate/ChangeDate';
+
 
 
 class SmallCalendar extends Component {
@@ -127,7 +127,7 @@ class SmallCalendar extends Component {
   render() {
     return (
       <div>
-       <ChangeDate  />
+       
       <table class="table ">
         <thead class="thead-dark">
           <tr>
