@@ -20,9 +20,10 @@ class App extends Component {
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-3 cp">
-           
-            <SmallCalendar />
-            <City />
+           <div class ="row justify-content-around"> <SmallCalendar /> </div>
+           <div class ="row justify-content-around"> <City /> </div> 
+            
+            
 
           </div>  
           <div class="col-lg cg">
