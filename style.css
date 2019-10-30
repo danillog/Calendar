@@ -29,3 +29,15 @@ h1, p {
   box-shadow: 7px 4px 20px 0 rgba(0,0,0,0.3);
 
 }
+
+h6{
+  font-size: 30px;
+}
+
+.btn-outline-secondary{
+  border: none;
+  font-size: 20px;
+}
+.btn-outline-secondary:hover{
+  background: #b0b0b0;
+}

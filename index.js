@@ -28,15 +28,12 @@ class App extends Component {
            <TimeChange />
           </div>
 
-          <div class="col-lg-2 exibe">
+          <div class="col-lg-3 exibe">
             <TimeNow />
           </div>
           
           <div class="col-lg-2">
             <ShowView />
-          </div>
-          <div class="col-lg-2 hide">
-            <h6> Usuario: Dangomes </h6>{" "}
           </div>
         </div>
 
