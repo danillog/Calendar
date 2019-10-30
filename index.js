@@ -4,11 +4,8 @@ import "./style.css";
 import SmallCalendar from "./SmallCalendar/SmallCalendar";
 import Calendario from "./Calendario/calendario";
 import City from "./City/City";
-import {
-  faChevronLeft,
-  faChevronRight
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Menu from "./Menu/Menu"
+import TimeChange from "./TimeChange/TimeChange"
 
 class App extends Component {
   constructor() {
@@ -21,26 +18,15 @@ class App extends Component {
     return (
       <div class="container-fluid">
         <div class="row title justify-content-around  head">
-          
-          <div class="dates exibe col-lg-2">
-            <button class="btn btn-outline-secondary botton-date">Hoje</button>
-            <button
-              type="button"
-              class="btn btn-outline-secondary btn-sm btn-right"
-            >
-              <FontAwesomeIcon icon={faChevronLeft} />
-            </button>
-
-            <button
-              type="button"
-              class="btn btn-outline-secondary btn-sm btn-left"
-            >
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
+          <div class="col-lg-2">
+            <Menu />
+          </div> 
+          <div class="col-lg-2">
+           <TimeChange />
           </div>
 
           <div class="col-lg-2 exibe">
-            <h6>Outubro de 2019</h6>{" "}
+            <h6>Outubro de 2019</h6>
           </div>
           <div class="col-lg-2 hide">
             <h6> Usuario: Dangomes </h6>{" "}
