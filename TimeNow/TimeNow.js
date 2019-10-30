@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./TimeChange.css";
+import "./TimeNow.css";
 
 
 class City extends Component {

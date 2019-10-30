@@ -1,0 +1,16 @@
+h6{
+  font-size: 24px;
+}
+
+.modify-view{
+  display:block;
+  left: 10px;
+
+}
+.show-view:hover .modify-view{
+  display:block;
+}
+
+#inlineFormCustomSelectPref{
+  margin-left: 24%;
+}

@@ -1,4 +1,5 @@
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
 *{
   margin: 0;
@@ -26,19 +27,5 @@ h1, p {
   font-family: 'Open Sans Condensed', sans-serif;
   padding:16px;
   box-shadow: 7px 4px 20px 0 rgba(0,0,0,0.3);
-}
-h6{
-  font-size: 24px;
-}
 
-.modify-view{
-  display:none;
-
-}
-.show-view:hover .modify-view{
-  display:block;
-}
-
-#inlineFormCustomSelectPref{
-  margin-left: 37%;
 }
