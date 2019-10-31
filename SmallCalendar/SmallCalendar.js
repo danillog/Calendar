@@ -24,12 +24,9 @@ import {
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {classNames, createClass } from 'classnames/bind';
-
-
+import { classNames, createClass } from "classnames/bind";
 
 class SmallCalendar extends Component {
-  
   constructor(props) {
     super(props);
     let today = new Date();
@@ -61,36 +58,35 @@ class SmallCalendar extends Component {
     this.setState({
       date: nextDate,
       month: format(nextDate, "MMMM", {
-      locale: require("date-fns/locale/pt")
+        locale: require("date-fns/locale/pt")
       }),
       year: format(nextDate, "yyyy"),
       calendar: this.buildCalendar(nextDate)
     });
   };
 
-  activeFocus = ev => {  
+  activeFocus = ev => {
     console.log(ev.currentTarget.dataset.iterator);
-    
+
     let clickDate = parseISO(ev.currentTarget.dataset.iterator);
-    console.log(clickDate);   
+    console.log(clickDate);
     this.setState({
-      month: format(clickDate, "MMMM", {locale: require("date-fns/locale/pt")}),
-      year: format(clickDate, 'yyy'),
+      month: format(clickDate, "MMMM", {
+        locale: require("date-fns/locale/pt")
+      }),
+      year: format(clickDate, "yyy"),
       date: clickDate,
       calendar: this.buildCalendar(clickDate)
     });
-    console.log('fim');
+    console.log("fim");
     //alert("voce clicou na data: " + ev.currentTarget.dataset.iterator); className= {'active'}
-//    ev.currentTarget.dataset.iterator    
+    //    ev.currentTarget.dataset.iterator
   };
 
-  onMonthChanged = () => {
-
-  }
+  onMonthChanged = () => {};
 
   buildCalendar = referenceDate => {
     let currentDate = referenceDate;
-    
 
     let startWeek = startOfMonth(currentDate);
 
@@ -112,7 +108,15 @@ class SmallCalendar extends Component {
       let week = [];
       for (let i = 0; i < 7 && isBefore(iterator, nextMonth); i++) {
         week.push(
-          <td data-iterator={format(iterator, 'yyy-MM-dd') + 'T00:00:00'}  onClick={this.activeFocus} className={ getDayOfYear(iterator) == getDayOfYear(currentDate) ? 'active': ''}>
+          <td
+            data-iterator={format(iterator, "yyy-MM-dd") + "T00:00:00"}
+            onClick={this.activeFocus}
+            className={
+              getDayOfYear(iterator) == getDayOfYear(currentDate)
+                ? "active"
+                : ""
+            }
+          >
             {format(iterator, "dd")}
           </td>
         );
@@ -127,47 +131,43 @@ class SmallCalendar extends Component {
   render() {
     return (
       <div>
-       
-      <table class="table ">
-        <thead class="thead-dark">
-          <tr>
-            <th colspan="2" class="botao">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-sm btn-right"
-                onClick={this.previous}
-              >
-                <FontAwesomeIcon icon={faChevronLeft} />
-              </button>
-            </th>
-            <th colspan="3" id="mounthAndYear" onclick={this.onMonthChanged}>
-              <button class = "btn btn-outline-primary botton-date">
-               {this.state.month} de {this.state.year}
-                
-              </button>
-            </th>
-            <th colspan="2" class="botao">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-sm btn-left"
-                onClick={this.next}
-              >
-                <FontAwesomeIcon icon={faChevronRight} />
-              </button>
-            </th>
-          </tr>
-          <th scope="col">Dom</th>
-          <th scope="col">Seg</th>
-          <th scope="col">Ter</th>
-          <th scope="col">Qua</th>
-          <th scope="col">Qui</th>
-          <th scope="col">Sex</th>
-          <th scope="col">Sab</th>
-        </thead>
-        <tbody id="mounth">{this.state.calendar}</tbody>
-
-       
-       </table>
+        <table class="table ">
+          <thead class="thead-dark">
+            <tr>
+              <th colspan="2" class="botao">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-sm btn-right"
+                  onClick={this.previous}
+                >
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                </button>
+              </th>
+              <th colspan="3" id="mounthAndYear" onclick={this.onMonthChanged}>
+                <button class="btn btn-outline-primary botton-date">
+                  {this.state.month} de {this.state.year}
+                </button>
+              </th>
+              <th colspan="2" class="botao">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-sm btn-left"
+                  onClick={this.next}
+                >
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </button>
+              </th>
+            </tr>
+            <th scope="col">Dom</th>
+            <th scope="col">Seg</th>
+            <th scope="col">Ter</th>
+            <th scope="col">Qua</th>
+            <th scope="col">Qui</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Sab</th>
+          </thead>
+          <tbody id="mounth">{this.state.calendar}</tbody>
+        </table>
       </div>
     );
   }
