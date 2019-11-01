@@ -14,9 +14,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: "React"
+      name: "React",
+      date: new Date()
     };
   }
+dateChange = async date =>{
+  const date = await timeNow(date)
+  this.setState({  })
+}
+
   render() {
     return (
       <div class="container-fluid">

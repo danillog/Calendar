@@ -38,6 +38,7 @@ class SmallCalendar extends Component {
       isActive: 0
     };
   }
+  
 
   previous = () => {
     let previousDate = subMonths(this.state.date, 1);
@@ -124,6 +125,7 @@ class SmallCalendar extends Component {
       }
       calendar.push(<tr key={key++}>{week}</tr>);
     }
+
 
     return calendar;
   };
