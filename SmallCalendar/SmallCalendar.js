@@ -38,6 +38,7 @@ class SmallCalendar extends Component {
       isActive: 0
     };
   }
+
   
 
   previous = () => {

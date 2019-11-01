@@ -18,9 +18,10 @@ class App extends Component {
       date: new Date()
     };
   }
-dateChange = async date =>{
-  const date = await timeNow(date)
-  this.setState({  })
+
+dateChange = () =>{
+  const response =  time
+  this.setState({ date : response.data.hits })
 }
 
   render() {
