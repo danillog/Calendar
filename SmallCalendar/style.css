@@ -1,4 +1,7 @@
-
+.all{
+    margin-left: 40px;
+    display: block;
+}
 
 #data{
   align-items: center;

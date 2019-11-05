@@ -133,7 +133,7 @@ class SmallCalendar extends Component {
 
   render() {
     return (
-      <div>
+      <div class= "all">
         <table class="table ">
           <thead class="thead-dark">
             <tr>
