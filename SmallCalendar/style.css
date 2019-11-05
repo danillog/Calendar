@@ -1,3 +1,5 @@
+
+
 #data{
   align-items: center;
   font-size: 15px;
@@ -5,20 +7,30 @@
 }
 table{
 
-  box-shadow: 10px 10px 15px 0 rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 6px 0 rgb(0,0,0,0.3);
   z-index: 2;
+  font-family: 'Open Sans Condensed bold', sans-serif;
+
 }
 .table .thead-dark th{
-  border-color: #134077;
-  background-image: linear-gradient(to top, #1A57A3 0%, #134077 1%, #2a5298 100%);
+  border-color: #d5d5d500;
+  padding: 4px;
+  background: rgb(218, 218, 218);
+  color: #000;
 }
 #mounthAndYear button{
   font-size: 15px;
+}
+.table td{
+  padding: 10px;
+  width: 24px;
+  height: 24px;
 }
 th,td{
   font-size: 10px;
   text-align: center;
   vertical-align: middle;
+
 }
 
 tr td{
@@ -42,7 +54,7 @@ tr td:hover{
 }
 
 .botton-date{
-  color: #fff;
+  color: rgb(10, 10, 10);
   font-size: 20px;
 }
  .botton-date:first-letter { text-transform: capitalize; }
@@ -52,12 +64,17 @@ tr td:hover{
   border: none;
   font-size: 20px;
 }
+.btn-outline-primary:hover{
+  background: #b0b0b0;
+}
 .btn-right{
   width: 60px;
+  color: #000;
 }
 
 .btn-left{
   width: 60px;
   top: 10%;
   left: 10%;
+  color: #000;
 }

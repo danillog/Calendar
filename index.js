@@ -45,7 +45,7 @@ dateChange = () =>{
         </div>
 
         <div class="row content">
-          <div class="col-lg-3 cp">
+          <div class="col-lg-2 cp">
             <div class="row justify-content-around">
               {" "}
               <SmallCalendar />{" "}
