@@ -13,6 +13,7 @@ import ShowView from "./ShowView/ShowView"
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
       name: "React",
       date: new Date()
@@ -21,7 +22,11 @@ class App extends Component {
 
 dateChange = () =>{
   const response =  time
-  this.setState({ date : response.data.hits })
+  this.setState({ date : dateSmall })
+}
+
+onCalendarioClicado(){
+  
 }
 
   render() {
@@ -36,7 +41,7 @@ dateChange = () =>{
           </div>
 
           <div class="col-lg-3 exibe">
-            <TimeNow />
+            <TimeNow dataAtual={this.state.dataAtual} />
           </div>
           
           <div class="col-lg-2">
@@ -48,7 +53,7 @@ dateChange = () =>{
           <div class="col-lg-2 cp">
             <div class="row justify-content-around">
               {" "}
-              <SmallCalendar />{" "}
+              <SmallCalendar calendarioClicado={this.onCalendarioClicado.bind(this)}   />
             </div>
             <div class="row justify-content-around">
               {" "}
@@ -56,7 +61,7 @@ dateChange = () =>{
             </div>
           </div>
           <div class="col-lg cg">
-            <h3> cg</h3>
+            <h3> Data</h3>
             <Calendario />
           </div>
         </div>

@@ -26,6 +26,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { classNames, createClass } from "classnames/bind";
 
+
+
+
 class SmallCalendar extends Component {
   constructor(props) {
     super(props);
@@ -127,9 +130,16 @@ class SmallCalendar extends Component {
       calendar.push(<tr key={key++}>{week}</tr>);
     }
 
+ 
 
     return calendar;
   };
+
+  dateReturn = () => {
+    time = this.state.date;
+    return(time)
+  }
+
 
   render() {
     return (
