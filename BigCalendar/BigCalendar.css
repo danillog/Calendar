@@ -25,6 +25,11 @@
   background: #858585;
   color: white;
 }
+
+.weekend{
+  background: #003f5c;
+  color: white;
+}
 .col-sm-2{
   justify-content: center;
   display: inline-table;

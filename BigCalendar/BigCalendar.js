@@ -31,7 +31,10 @@ class BigCalendar extends Component {
       week.push(
         <div class="col-sm cell">
           <div
-            className={"row day " + (iterator.getDate() == dateWeek.getDate() ? "itsToday" : "")}
+            className={"row day " + (iterator.getDate() == dateWeek.getDate() ? "itsToday" : "") + 
+            (iterator.getDate() == startWeek.getDate() ? "weekend" : "") + 
+            (iterator.getDate() == endWeek.getDate() ? "weekend" : "")  
+            }
           >
             <div class="col-12">
               <p>
