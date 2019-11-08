@@ -2,22 +2,61 @@ import React, { Component } from "react";
 import "./BigCalendar.css";
 import {
   format,
-  subDays,
   addDays,
   parseISO,
-  isToday 
+  isToday,
+  endOfWeek,
+  startOfWeek,
+  isBefore
 } from "date-fns";
 import startOfToday from "date-fns/startOfToday";
+import { enUS, eo, pt } from "date-fns/locale";
 
 class BigCalendar extends Component {
- constructor() {
+  constructor() {
     super();
 
     this.state = {
       date: new Date(),
+      week: this.buildWeek(new Date())
     };
   }
+
+  buildWeek = dateWeek => {
+    let startWeek = startOfWeek(dateWeek);
+    let endWeek = endOfWeek(dateWeek);
+    let iterator = startWeek;
+    let week = [];
+    while (isBefore(iterator, endWeek)) {
+      week.push(
+        <div class="col-sm cell">
+          <div class="row day">
+            <div class="col-12">
+              <p>
+                {format(iterator, "ccc", {
+                  locale: require("date-fns/locale/pt")
+                })}
+              </p>
+            </div>
+            <div class="col-12">
+              <p>{format(iterator, "d")}</p>{" "}
+            </div>
+          </div>
+        </div>
+      );
+      if(iterator == dateWeek){
+          
+      }
+      iterator = addDays(iterator, 1);
+    }
+
+    return week;
+  };
+
   render() {
+    console.log(
+      format(new Date(), "iii", { locale: require("date-fns/locale/pt") })
+    );
     return (
       /*
     O componente exibirá o dia do mês e o dia da semana. Será divido em 7 (com a opção fins de semana ativada) ou 
@@ -26,78 +65,7 @@ class BigCalendar extends Component {
 */
       <div class="col-lg cg">
         <div id="semana">
-          <div class="row dias seven-cols">
-            <div class="col-sm cell">
-              <div class="row day">
-                <div class="col-12">
-                  <p>Dom</p>
-                </div>
-                <div class="col-12">
-                  <p>13</p>{" "}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm cell">
-              <div class="row day">
-                <div class="col-12">
-                  <p>Seg</p>
-                </div>
-                <div class="col-12">
-                  <p>14</p>{" "}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm cell">
-              <div class="row day" id="itsToday">
-                <div class="col-12">
-                  <p>Ter</p>
-                </div>
-                <div class="col-12">
-                  <p>15</p>{" "}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm cell">
-              <div class="row day">
-                <div class="col-12">
-                  <p>Qua</p>
-                </div>
-                <div class="col-12">
-                  <p>16</p>{" "}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm cell">
-              <div class="row day">
-                <div class="col-12">
-                  <p>Qui</p>
-                </div>
-                <div class="col-12">
-                  <p>17</p>{" "}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm cell">
-              <div class="row day">
-                <div class="col-12">
-                  <p>Sex</p>
-                </div>
-                <div class="col-12">
-                  <p>18</p>{" "}
-                </div>
-              </div>
-            </div>
-            <div class="col-sm cell">
-              <div class="row day">
-                <div class="col-12">
-                  <p>Sab</p>
-                </div>
-                <div class="col-12">
-                  <p>19</p>{" "}
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="row dias seven-cols">{this.state.week}</div>
         </div>
       </div>
     );
