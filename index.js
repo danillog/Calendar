@@ -45,7 +45,7 @@ onClickCalendar(dateSmall){
             </div>
           </div>
           <div class="col-lg cg">
-            <BigCalendar />
+            <BigCalendar newTime={this.state.date} />
           </div>
         </div>
       </div>

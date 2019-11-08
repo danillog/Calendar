@@ -15,9 +15,7 @@ import { enUS, eo, pt } from "date-fns/locale";
 class BigCalendar extends Component {
   constructor() {
     super();
-
     this.state = {
-      date: new Date(),
       week: this.buildWeek(new Date())
     };
   }
@@ -54,11 +52,13 @@ class BigCalendar extends Component {
 
     return week;
   };
-
+  changeDate = () => {
+    setState = {
+      
+    }
+  }
   render() {
-    console.log(
-      format(new Date(), "iii", { locale: require("date-fns/locale/pt") })
-    );
+    
     return (
       /*
     O componente exibirá o dia do mês e o dia da semana. Será divido em 7 (com a opção fins de semana ativada) ou 
