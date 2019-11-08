@@ -8,18 +8,14 @@ import { format } from "date-fns"
 class City extends Component {
   constructor(props){
     super(props);
-    let today = new Date();
-    this.state = {
-      day: format(today, "dd"),
-      month: format(today, "LLLL", { locale: require("date-fns/locale/pt") }),
-      year: format (today, "y")
-    };
-    
   }
   render() {
     return (
       <div>
-        <h6>{this.state.day} de {this.state.month} de {this.state.year}</h6>
+        <h6>
+          {format((this.props.newTime), "dd")} de {format(
+            (this.props.newTime), "LLLL", { locale: require("date-fns/locale/pt") })} de {format((this.props.newTime), "y")}
+        </h6>
       </div>
     );
   }

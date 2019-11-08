@@ -20,13 +20,8 @@ class App extends Component {
     };
   }
 
-dateChange = () =>{
-  const response =  time
+onClickCalendar(dateSmall){
   this.setState({ date : dateSmall })
-}
-
-onCalendarioClicado(){
-  
 }
 
   render() {
@@ -41,7 +36,7 @@ onCalendarioClicado(){
           </div>
 
           <div class="col-lg-3 exibe">
-            <TimeNow dataAtual={this.state.dataAtual} />
+            <TimeNow newTime={this.state.date} />
           </div>
           
           <div class="col-lg-2">
@@ -53,7 +48,7 @@ onCalendarioClicado(){
           <div class="col-lg-2 cp">
             <div class="row justify-content-around">
               {" "}
-              <SmallCalendar calendarioClicado={this.onCalendarioClicado.bind(this)}   />
+              <SmallCalendar clickCalendar={this.onClickCalendar.bind(this)}   />
             </div>
             <div class="row justify-content-around">
               {" "}

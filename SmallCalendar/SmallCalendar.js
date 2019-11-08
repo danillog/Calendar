@@ -26,9 +26,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { classNames, createClass } from "classnames/bind";
 
-
-
-
 class SmallCalendar extends Component {
   constructor(props) {
     super(props);
@@ -41,8 +38,6 @@ class SmallCalendar extends Component {
       isActive: 0
     };
   }
-
-  
 
   previous = () => {
     let previousDate = subMonths(this.state.date, 1);
@@ -71,10 +66,8 @@ class SmallCalendar extends Component {
   };
 
   activeFocus = ev => {
-    console.log(ev.currentTarget.dataset.iterator);
-
     let clickDate = parseISO(ev.currentTarget.dataset.iterator);
-    console.log(clickDate);
+
     this.setState({
       month: format(clickDate, "MMMM", {
         locale: require("date-fns/locale/pt")
@@ -83,11 +76,10 @@ class SmallCalendar extends Component {
       date: clickDate,
       calendar: this.buildCalendar(clickDate)
     });
-    console.log("fim");
+    this.props.clickCalendar(clickDate);
     //alert("voce clicou na data: " + ev.currentTarget.dataset.iterator); className= {'active'}
     //    ev.currentTarget.dataset.iterator
   };
-
   onMonthChanged = () => {};
 
   buildCalendar = referenceDate => {
@@ -130,20 +122,17 @@ class SmallCalendar extends Component {
       calendar.push(<tr key={key++}>{week}</tr>);
     }
 
- 
-
     return calendar;
   };
 
   dateReturn = () => {
     time = this.state.date;
-    return(time)
-  }
-
+    return time;
+  };
 
   render() {
     return (
-      <div class= "all">
+      <div class="all">
         <table class="table ">
           <thead class="thead-dark">
             <tr>
