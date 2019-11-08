@@ -53,12 +53,13 @@ class BigCalendar extends Component {
     return week;
   };
   changeDate = () => {
-    setState = {
-      
-    }
+  let dateNew = this.props.newTime;
+   this.setState({
+      week:this.buildWeek(dateNew)
+    });
   }
   render() {
-    
+
     return (
       /*
     O componente exibirá o dia do mês e o dia da semana. Será divido em 7 (com a opção fins de semana ativada) ou 
@@ -66,7 +67,7 @@ class BigCalendar extends Component {
     Ele receberá um arquivo do componente filho que será exibido conforme a semana. (array interno de mensagens)
 */
       <div class="col-lg cg">
-        <div id="semana">
+        <div id="semana" >
           <div class="row dias seven-cols">{this.state.week}</div>
         </div>
       </div>
