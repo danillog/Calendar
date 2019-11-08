@@ -21,7 +21,7 @@
     border-radius: 50%;
     margin-bottom: 15px;
 }
-#itsToday{
+.itsToday{
   background: #858585;
   color: white;
 }

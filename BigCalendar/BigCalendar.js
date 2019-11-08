@@ -30,7 +30,9 @@ class BigCalendar extends Component {
     while (isBefore(iterator, endWeek)) {
       week.push(
         <div class="col-sm cell">
-          <div class="row day">
+          <div
+            className={"row day " + (iterator.getDate() == dateWeek.getDate() ? "itsToday" : "")}
+          >
             <div class="col-12">
               <p>
                 {format(iterator, "ccc", {
@@ -44,9 +46,6 @@ class BigCalendar extends Component {
           </div>
         </div>
       );
-      if(iterator == dateWeek){
-          
-      }
       iterator = addDays(iterator, 1);
     }
 
