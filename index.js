@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import "./style.css";
 import SmallCalendar from "./SmallCalendar/SmallCalendar";
-import Calendario from "./Calendario/calendario";
+import BigCalendar from "./BigCalendar/BigCalendar";
 import City from "./City/City";
 import Menu from "./Menu/Menu"
 import TimeChange from "./TimeChange/TimeChange"
@@ -45,7 +45,7 @@ onClickCalendar(dateSmall){
             </div>
           </div>
           <div class="col-lg cg">
-            <Calendario />
+            <BigCalendar />
           </div>
         </div>
       </div>
