@@ -28,19 +28,8 @@ onClickCalendar(dateSmall){
     return (
       <div class="container-fluid">
         <div class="row title justify-content-around  head">
-          <div class="col-lg-2">
-            <Menu />
-          </div> 
-          <div class="col-lg-2">
-           <TimeChange />
-          </div>
-
           <div class="col-lg-3 exibe">
             <TimeNow newTime={this.state.date} />
-          </div>
-          
-          <div class="col-lg-2">
-            <ShowView />
           </div>
         </div>
 
@@ -56,7 +45,6 @@ onClickCalendar(dateSmall){
             </div>
           </div>
           <div class="col-lg cg">
-            <h3> Data</h3>
             <Calendario />
           </div>
         </div>

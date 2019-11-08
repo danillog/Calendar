@@ -160,15 +160,15 @@ class SmallCalendar extends Component {
                 </button>
               </th>
             </tr>
-            <th scope="col">Dom</th>
-            <th scope="col">Seg</th>
-            <th scope="col">Ter</th>
-            <th scope="col">Qua</th>
-            <th scope="col">Qui</th>
-            <th scope="col">Sex</th>
-            <th scope="col">Sab</th>
+            <th scope="col" class="hide">Dom</th>
+            <th scope="col" class="hide">Seg</th>
+            <th scope="col" class="hide">Ter</th>
+            <th scope="col" class="hide">Qua</th>
+            <th scope="col" class="hide">Qui</th>
+            <th scope="col" class="hide">Sex</th>
+            <th scope="col" class="hide">Sab</th>
           </thead>
-          <tbody id="mounth">{this.state.calendar}</tbody>
+          <tbody id="mounth" class="hide">{this.state.calendar}</tbody>
         </table>
       </div>
     );

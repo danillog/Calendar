@@ -81,3 +81,13 @@ tr td:hover{
   left: 10%;
   color: #000;
 }
+
+@media only screen and (max-width: 1024px) {
+
+  .hide{
+    display: none;
+  }
+  .all{
+    display: block;
+  }
+}
