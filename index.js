@@ -15,7 +15,8 @@ class App extends Component {
     super();
 
     this.state = {
-      date: new Date()
+      date: new Date(),
+      hello: "ola"
     };
   }
 
