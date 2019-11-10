@@ -32,8 +32,8 @@ class BigCalendar extends Component {
         <div class="col-sm cell">
           <div
             className={"row day " + (iterator.getDate() == dateWeek.getDate() ? "itsToday" : "") + 
-            (iterator.getDate() == startWeek.getDate() ? "weekend" : "") + 
-            (iterator.getDate() == endWeek.getDate() ? "weekend" : "")  
+            (iterator.getDate() == startWeek.getDate() ? " weekend" : "") + 
+            (iterator.getDate() == endWeek.getDate() ? " weekend" : "")  
             }
           >
             <div class="col-12">
