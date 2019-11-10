@@ -20,27 +20,25 @@
     left: 0%;
     border-radius: 50%;
     margin-bottom: 15px;
+    text-transform: capitalize;
 }
 
 .noWeekend{
   display: none;
 }
-.itsToday{
-  background: #858585;
-  color: white;
-  border: 3px solid #686868;
-}
-.itsToday.noWeekend{
-  display:none;
+.itsToday , .itsToday.weekend{
+  box-shadow: inset 3px 3px 4px 1px  rgba(0, 0, 0, 0.349);
+  transform: scale(0.95);
+  background: #ddd ;
+  color: #797979;
+  transition: 0.5s;
 }
 .weekend{
-  background: #1d2f38;
-  color: white;
+  background: #cccccc;
+  color: #797979;
+  
 }
-.itsToday.weekend{
-  background: #858585;
-  color: white;
-}
+
 .col-sm-2{
   justify-content: center;
   display: inline-table;

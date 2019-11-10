@@ -48,6 +48,7 @@ class BigCalendar extends Component {
               <p>{format(iterator, "d")}</p>{" "}
             </div>
           </div>
+          
         </div>
       );
       iterator = addDays(iterator, 1);
