@@ -15,10 +15,10 @@ import { enUS, eo, pt } from "date-fns/locale";
 class BigCalendar extends Component {
   constructor() {
     super();
-    let hoje = new Date();
+    let today = new Date();
     this.state = {
-      hoje: hoje,
-      week: this.buildWeek(hoje)
+      today: today,
+      week: this.buildWeek(today)
     };
   }
 
@@ -56,11 +56,11 @@ class BigCalendar extends Component {
   };
 
   render() {
-    (this.state.hoje !== this.props.newTime) && this.setState({
-      hoje: this.props.newTime,
+    (this.state.today !== this.props.newTime) && this.setState({
+      today: this.props.newTime,
       week: this.buildWeek(this.props.newTime)
     });
-    console.log(this.state.hoje)
+    console.log(this.state.today)
     return (
       /*
     O componente exibirá o dia do mês e o dia da semana. Será divido em 7 (com a opção fins de semana ativada) ou 

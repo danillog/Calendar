@@ -27,7 +27,11 @@
 }
 
 .weekend{
-  background: #003f5c;
+  background: #1d2f38;
+  color: white;
+}
+.itsTodayweekend{
+  background: #858585;
   color: white;
 }
 .col-sm-2{
