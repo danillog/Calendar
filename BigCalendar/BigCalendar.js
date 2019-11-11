@@ -63,7 +63,6 @@ class BigCalendar extends Component {
         today: this.props.newTime,
         week: this.buildWeek(this.props.newTime)
       });
-    console.log(this.state.today);
     return (
       /*
     O componente exibirá o dia do mês e o dia da semana. Será divido em 7 (com a opção fins de semana ativada) ou 

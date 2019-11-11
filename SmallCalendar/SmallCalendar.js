@@ -70,7 +70,7 @@ class SmallCalendar extends Component {
 
     this.setState({
       month: format(clickDate, "MMMM", {
-        locale: require("date-fns/locale/pt")
+      locale: require("date-fns/locale/pt")
       }),
       year: format(clickDate, "yyy"),
       date: clickDate,

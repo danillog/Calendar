@@ -45,7 +45,7 @@ class App extends Component {
             </div>
             <div class="row justify-content-around">
               {" "}
-              <City clickCity={this.onClickCity.bind(this)} />{" "}
+              <City clickCity={this.onClickCity.bind(this)} />
             </div>
           </div>
           <div class="col-lg cg">
