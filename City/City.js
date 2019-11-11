@@ -17,10 +17,10 @@ class City extends Component {
     };
   }
   select = ev => {
-    let city = ev;
+    let city = ev.currentTarget;
     this.setState({selectCity: city});
-    this.props.clickCity(city);
     console.log(city);
+    this.props.clickCity(city)
 
   };
 
@@ -33,7 +33,7 @@ class City extends Component {
       city.push(
         <a 
           key = {key++}
-          onClick={this.select(key)}
+          onClick={this.select}
           className={"list-group-item list-group-item-action"}
         >
           {cityList[i]}
@@ -45,8 +45,8 @@ class City extends Component {
   };
 
   render() {
-     console.log(this.state.selectCity)
-    return <div class="list-group">{this.state.citys}</div>;
+     
+    return <div class="list-group" onClick = {console.log(this.state.selectCity)}>{this.state.citys}</div>;
   }
 }
 
