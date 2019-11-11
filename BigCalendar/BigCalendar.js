@@ -19,7 +19,6 @@ class BigCalendar extends Component {
     this.state = {
       today: today,
       week: this.buildWeek(today),
-      test: "tes"
     };
   }
 
