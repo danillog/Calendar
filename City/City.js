@@ -22,17 +22,17 @@ class City extends Component {
       "Três Lagoas",
       "São Paulo"
     ];
-   
+
     let city = [];
     let i = 0;
-   
+
     while (i < 4) {
       city.push(
         <a
           onClick={this.select(cityList[i])}
           className={"list-group-item list-group-item-action"}
         >
-          {cityList[i]}a
+          {cityList[i]}
         </a>
       );
       i++;
@@ -41,8 +41,7 @@ class City extends Component {
   };
 
   render() {
-   
-    return (<div class="list-group">{this.state.citys}</div>);
+    return <div class="list-group">{this.state.citys}</div>;
   }
 }
 
