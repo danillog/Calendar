@@ -4,11 +4,10 @@ import "./style.css";
 import SmallCalendar from "./SmallCalendar/SmallCalendar";
 import BigCalendar from "./BigCalendar/BigCalendar";
 import City from "./City/City";
-import Menu from "./Menu/Menu"
-import TimeChange from "./TimeChange/TimeChange"
-import TimeNow from "./TimeNow/TimeNow"
-import ShowView from "./ShowView/ShowView"
-
+import Menu from "./Menu/Menu";
+import TimeChange from "./TimeChange/TimeChange";
+import TimeNow from "./TimeNow/TimeNow";
+import ShowView from "./ShowView/ShowView";
 
 class App extends Component {
   constructor() {
@@ -16,13 +15,17 @@ class App extends Component {
 
     this.state = {
       date: new Date(),
-      hello: "ola"
+      city: ""
     };
   }
 
-onClickCalendar(dateSmall){
-  this.setState({ date : dateSmall })
-}
+  onClickCalendar(dateSmall) {
+    this.setState({ date: dateSmall });
+  }
+
+  onClickCity(selectCity) {
+    this.setState({ city: selectCity });
+  }
 
   render() {
     return (
@@ -30,6 +33,7 @@ onClickCalendar(dateSmall){
         <div class="row title justify-content-around  head">
           <div class="col-lg-3 exibe">
             <TimeNow newTime={this.state.date} />
+            <h6>{this.state.city} </h6>
           </div>
         </div>
 
@@ -37,11 +41,11 @@ onClickCalendar(dateSmall){
           <div class="col-lg-2 cp">
             <div class="row justify-content-around">
               {" "}
-              <SmallCalendar clickCalendar={this.onClickCalendar.bind(this)}   />
+              <SmallCalendar clickCalendar={this.onClickCalendar.bind(this)} />
             </div>
             <div class="row justify-content-around">
               {" "}
-              <City />{" "}
+              <City clickCity={this.onClickCity.bind(this)} />{" "}
             </div>
           </div>
           <div class="col-lg cg">

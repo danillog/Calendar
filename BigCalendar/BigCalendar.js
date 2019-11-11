@@ -32,9 +32,11 @@ class BigCalendar extends Component {
       week.push(
         <div class="col-sm cell">
           <div
-            className={"row day " + (iterator.getDate() == dateWeek.getDate() ? "itsToday" : "") + 
-            (iterator.getDate() == startWeek.getDate() ? " weekend" : "") + 
-            (iterator.getDate() == endWeek.getDate() ? " weekend" : "")  
+            className={
+              "row day " +
+              (iterator.getDate() == dateWeek.getDate() ? "itsToday" : "") +
+              (iterator.getDate() == startWeek.getDate() ? " weekend" : "") +
+              (iterator.getDate() == endWeek.getDate() ? " weekend" : "")
             }
           >
             <div class="col-12">
@@ -48,7 +50,6 @@ class BigCalendar extends Component {
               <p>{format(iterator, "d")}</p>{" "}
             </div>
           </div>
-          
         </div>
       );
       iterator = addDays(iterator, 1);
@@ -58,11 +59,12 @@ class BigCalendar extends Component {
   };
 
   render() {
-    (this.state.today !== this.props.newTime) && this.setState({
-      today: this.props.newTime,
-      week: this.buildWeek(this.props.newTime)
-    });
-    console.log(this.state.today)
+    this.state.today !== this.props.newTime &&
+      this.setState({
+        today: this.props.newTime,
+        week: this.buildWeek(this.props.newTime)
+      });
+    console.log(this.state.today);
     return (
       /*
     O componente exibirá o dia do mês e o dia da semana. Será divido em 7 (com a opção fins de semana ativada) ou 
@@ -70,8 +72,7 @@ class BigCalendar extends Component {
     Ele receberá um arquivo do componente filho que será exibido conforme a semana. (array interno de mensagens)
 */
       <div class="col-lg">
-        <div id="semana" >
-          
+        <div id="semana">
           <div class="row dias seven-cols">{this.state.week}</div>
         </div>
       </div>
