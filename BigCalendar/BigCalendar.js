@@ -69,7 +69,7 @@ class BigCalendar extends Component {
     em 5 (com a opção semana ativada). 
     Ele receberá um arquivo do componente filho que será exibido conforme a semana. (array interno de mensagens)
 */
-      <div class="col-lg cg">
+      <div class="col-lg">
         <div id="semana" >
           
           <div class="row dias seven-cols">{this.state.week}</div>
