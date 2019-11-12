@@ -13,15 +13,16 @@ class City extends Component {
     ];
     this.state = {
       selectCity: "",
-      citys: this.buildCity(cityList)
+      cities: this.buildCity(cityList)
     };
   }
   select = ev => {
+    console.log(this);
+    console.log(ev);
     let city = ev.currentTarget;
-    this.setState({selectCity: city});
     console.log(city);
-    this.props.clickCity(city)
-
+    this.setState({selectCity: city});
+    
   };
 
   buildCity = cityList => {
@@ -30,14 +31,14 @@ class City extends Component {
     let key = 0
 
     while (i < 5) {
-      city.push(
+      city.push(<li className={"list-group-item"}>
         <a 
           key = {key++}
           onClick={this.select}
           className={"list-group-item list-group-item-action"}
         >
           {cityList[i]}
-        </a>
+        </a></li>
       );
       i++;
     }
@@ -46,7 +47,7 @@ class City extends Component {
 
   render() {
      
-    return <div class="list-group" onClick = {console.log(this.state.selectCity)}>{this.state.citys}</div>;
+    return <ul class="list-group">{this.state.cities}</ul>;
   }
 }
 
