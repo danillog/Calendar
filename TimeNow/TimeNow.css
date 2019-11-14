@@ -11,3 +11,22 @@ h6{
 .mounth{
   text-transform: capitalize;
 }
+
+@media only screen and (max-width: 1024px) {
+  .date{
+    align-content: center
+  }
+   .dayTime{
+    font-size: 30px;
+    margin-right: 10px;
+    margin-left: 30px;
+   }
+   .mounth{
+    font-size: 20px;
+    margin-left: 11px;
+   }
+   .year{
+     display: none;
+   }
+
+}

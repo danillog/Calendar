@@ -98,13 +98,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-   .head{
-    display: table;
-    width: 100%; /*Optional*/
-    table-layout: fixed; /*Optional*/
-    border-spacing: 10px; /*Optional*/
-    transition: 0.5s;
-}
+
 .exibe
 {
     display: table-cell;

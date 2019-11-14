@@ -10,14 +10,14 @@ class TimeNow extends Component {
   }
   render() {
     return (
-      <div class="row">
-        <h6>{format(this.props.newTime, "dd")} de</h6>
-        <h6 class="mounth">
+      <div className={"row date"}>
+        <h6 className={"dayTime"}>{format(this.props.newTime, "dd")} </h6>
+        <h6 className={"mounth"}>
            {format(this.props.newTime, "LLLL", {
             locale: require("date-fns/locale/pt")
           })}{" "} 
         </h6>
-        <h6> de {format(this.props.newTime, "y")}</h6>
+        <h6 className={"year"}> de {format(this.props.newTime, "y")}</h6>
       </div>
     );
   }

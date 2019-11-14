@@ -55,5 +55,24 @@ h6{
   .cp{
     display: none;
   }
+  .title{
+    color: #797979;
+    position: relative;
+    width: 138PX;
+    height: 140px;
+    background: linear-gradient(to top, #b0b0b0 0%, #b0b0b09c 1%, #b0b0b0 100%);
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.3);
+    justify-content: center;
+    left: 41%;
+    border-radius: 50%;
+    margin-bottom: 17px;
+    text-transform: capitalize;
+    display: table;
+    table-layout: fixed;
+    border-spacing: 10px;
+    transition: 0.5s;
+    margin-top: 15px;
+
+  }
   
 }
