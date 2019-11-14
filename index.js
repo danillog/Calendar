@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   render() {
+   
     return (
       <div class="container-fluid">
         <div class="row title justify-content-around  head">
