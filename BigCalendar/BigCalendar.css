@@ -98,22 +98,24 @@
 }
 
 @media only screen and (max-width: 1024px) {
-   .head
-{
+   .head{
     display: table;
     width: 100%; /*Optional*/
     table-layout: fixed; /*Optional*/
     border-spacing: 10px; /*Optional*/
+    transition: 0.5s;
 }
 .exibe
 {
     display: table-cell;
+    transition: 0.5s;
     
 }
   
  
  .modify-view{
     margin-left: -20%;
+      transition: 0.5s;
   }
   .cell{
   box-shadow: 10px 10px 15px 0 rgba(0,0,0,0.3);
@@ -122,6 +124,7 @@
   }
   .dias{
     justify-content: space-around;
-    margin-right: 10px
+    margin-right: 10px;
+    transition: 0.5s;
   }
 }

@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div class="container-fluid">
         <div class="row title justify-content-around  head">
-          <div class="col-lg-3 exibe">
+          <div class="col-lg-3">
             <TimeNow newTime={this.state.date} />
             <h6>{this.state.city} </h6>
           </div>
