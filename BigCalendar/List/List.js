@@ -4,7 +4,7 @@ import useInfiniteScroll from "./useInfiniteScroll";
 const List = () => {
   const [listItems, setListItems] = useState(Array.from(Array(3).keys(), n => n + 1));
   const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
-
+  
 
   function fetchMoreListItems() {
     setTimeout(() => {
@@ -18,7 +18,7 @@ const List = () => {
     
       <div >
         {listItems.map(listItem => 
-        <div className={"video"}>
+        <div className={"video"} >
           <h4> Video conferencia Ponta Porã X Dourados </h4>
           <p>
         
