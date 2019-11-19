@@ -5,6 +5,7 @@ const List = () => {
   const [listItems, setListItems] = useState(Array.from(Array(3).keys(), n => n + 1));
   const [isFetching, setIsFetching] = useInfiniteScroll(fetchMoreListItems);
 
+
   function fetchMoreListItems() {
     setTimeout(() => {
       setListItems(prevState => ([...prevState, ...Array.from(Array(3).keys(), n => n + prevState.length + 1)]));
