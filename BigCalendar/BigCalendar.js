@@ -11,6 +11,7 @@ import {
 } from "date-fns";
 import startOfToday from "date-fns/startOfToday";
 import { enUS, eo, pt } from "date-fns/locale";
+import List from "./List/List";
 
 class BigCalendar extends Component {
   constructor() {
@@ -49,6 +50,7 @@ class BigCalendar extends Component {
               <p>{format(iterator, "d")}</p>{" "}
             </div>
           </div>
+          <List />
         </div>
       );
       iterator = addDays(iterator, 1);
