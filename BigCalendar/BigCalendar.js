@@ -50,7 +50,7 @@ class BigCalendar extends Component {
               <p>{format(iterator, "d")}</p>{" "}
             </div>
           </div>
-          <List />
+          <List  />
         </div>
       );
       iterator = addDays(iterator, 1);
